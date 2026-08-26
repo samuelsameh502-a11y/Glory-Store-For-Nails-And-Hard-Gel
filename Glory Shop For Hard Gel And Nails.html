@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>جلوري | هارد جيل وأظافر</title>
+	<meta name="description" content="جلوري للهارد جيل والأظافر في شبرا مصر - خامات أصلية وألوان تليق بكل مناسبة.">
+	<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23ff816f'/%3E%3Cpath d='M19 39c0-11 5-19 13-19s13 8 13 19c0 5-3 8-8 8H27c-5 0-8-3-8-8Z' fill='%23fff8f1'/%3E%3Cpath d='M27 40c3 3 10 3 13 0' fill='none' stroke='%2371335f' stroke-width='3' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='29' r='3' fill='%2371335f'/%3E%3C/svg%3E">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+	<style>
+		:root {
+			--ink: #31212e;
+			--plum: #71335f;
+			--pink: #f8b5ca;
+			--coral: #ff816f;
+			--cream: #fff8f1;
+			--mint: #d8f0e5;
+			--line: #ead9dc;
+		}
+
+		* { box-sizing: border-box; margin: 0; padding: 0; }
+		html { scroll-behavior: smooth; }
+		body { background: var(--cream); color: var(--ink); font-family: "Cairo", sans-serif; line-height: 1.7; }
+		a { color: inherit; text-decoration: none; }
+		.container { width: min(1120px, calc(100% - 40px)); margin: auto; }
+		.topbar { background: var(--plum); color: #fff; font-size: 13px; padding: 7px 0; }
+		.topbar .container { display: flex; justify-content: space-between; gap: 16px; }
+		header { background: rgba(255, 248, 241, .92); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 5; backdrop-filter: blur(12px); }
+		nav { align-items: center; display: flex; justify-content: space-between; min-height: 78px; }
+		.logo { align-items: center; display: flex; gap: 11px; }
+		.logo-mark { align-items: center; background: var(--coral); border-radius: 50% 50% 45% 45%; color: white; display: flex; font-size: 23px; height: 48px; justify-content: center; transform: rotate(-8deg); width: 48px; }
+		.logo strong { display: block; color: var(--plum); font-family: "Playfair Display", serif; font-size: 26px; line-height: 1; }
+		.logo small { color: #9b7082; font-size: 10px; letter-spacing: 1px; }
+		.nav-links { display: flex; gap: 28px; font-size: 14px; font-weight: 700; }
+		.nav-links a:hover { color: var(--coral); }
+		.nav-cta, .primary-btn { background: var(--plum); border-radius: 4px; color: #fff; font-weight: 700; padding: 10px 19px; transition: transform .2s, background .2s; }
+		.nav-cta:hover, .primary-btn:hover { background: var(--coral); transform: translateY(-2px); }
+		.hero { overflow: hidden; padding: 70px 0 85px; position: relative; }
+		.hero:before { background: var(--pink); border-radius: 50%; content: ""; height: 480px; opacity: .35; position: absolute; right: -160px; top: -170px; width: 480px; }
+		.hero-grid { align-items: center; display: grid; gap: 65px; grid-template-columns: 1fr 1.05fr; position: relative; }
+		.eyebrow { color: var(--coral); font-size: 14px; font-weight: 800; letter-spacing: 1px; margin-bottom: 12px; }
+		h1 { color: var(--plum); font-family: "Playfair Display", serif; font-size: clamp(45px, 6vw, 78px); line-height: 1.1; margin-bottom: 20px; }
+		h1 span { color: var(--coral); }
+		.hero-copy p { color: #6e5662; font-size: 17px; max-width: 490px; }
+		.hero-actions { align-items: center; display: flex; gap: 18px; margin-top: 28px; }
+		.secondary-btn { border-bottom: 2px solid var(--coral); color: var(--plum); font-weight: 700; padding: 7px 2px; }
+		.hero-photo { height: 450px; position: relative; }
+		.hero-photo img { border-radius: 48% 48% 8px 8px; height: 100%; object-fit: cover; width: 82%; }
+		.photo-tag { background: #fff; bottom: 28px; box-shadow: 0 12px 30px rgba(91, 46, 70, .14); color: var(--plum); font-size: 14px; font-weight: 700; left: 0; padding: 14px 18px; position: absolute; }
+		.photo-tag b { color: var(--coral); display: block; font-size: 22px; line-height: 1.1; }
+		section { padding: 82px 0; }
+		.section-head { align-items: end; display: flex; justify-content: space-between; margin-bottom: 30px; }
+		h2 { color: var(--plum); font-family: "Playfair Display", serif; font-size: 38px; line-height: 1.2; }
+		.section-head p { color: #866c77; font-size: 14px; }
+		.benefits { background: var(--mint); }
+		.benefit-grid { display: grid; gap: 22px; grid-template-columns: repeat(3, 1fr); }
+		.benefit { background: rgba(255,255,255,.6); padding: 24px; }
+		.benefit-icon { font-size: 27px; margin-bottom: 8px; }
+		.benefit h3 { color: var(--plum); font-size: 18px; }
+		.benefit p { color: #60786e; font-size: 13px; margin-top: 5px; }
+		.products { background: #fffdfb; }
+		.product-grid { display: grid; gap: 22px; grid-template-columns: repeat(4, 1fr); }
+		.product { background: var(--cream); border: 1px solid var(--line); overflow: hidden; transition: transform .25s, box-shadow .25s; }
+		.product:hover { box-shadow: 0 14px 28px rgba(113,51,95,.1); transform: translateY(-5px); }
+		.product img { display: block; height: 220px; object-fit: cover; width: 100%; }
+		.product-body { padding: 15px 17px 19px; }
+		.product-body small { color: var(--coral); font-weight: 700; }
+		.product-body h3 { color: var(--plum); font-size: 17px; margin: 4px 0 6px; }
+		.product-body p { color: #866c77; font-size: 12px; }
+		.product-price { color: var(--plum); display: block; font-size: 18px; font-weight: 800; margin-top: 8px; }
+		.add-to-cart { background: var(--coral); border: 0; color: #fff; cursor: pointer; font-family: inherit; font-size: 13px; font-weight: 700; margin-top: 12px; padding: 9px 13px; width: 100%; }
+		.add-to-cart:hover { background: var(--plum); }
+		.cart-button { background: var(--coral); border: 0; border-radius: 4px; color: #fff; cursor: pointer; font-family: inherit; font-weight: 700; padding: 10px 16px; }
+		.cart-count { background: #fff; border-radius: 50%; color: var(--coral); display: inline-block; font-size: 11px; margin-right: 5px; min-width: 20px; padding: 1px 5px; }
+		.cart-drawer { background: #fff; box-shadow: -10px 0 35px rgba(49,33,46,.16); height: 100vh; max-width: 390px; overflow-y: auto; padding: 28px; position: fixed; right: 0; top: 0; transform: translateX(105%); transition: transform .3s ease; width: 88%; z-index: 10; }
+		.cart-drawer.open { transform: translateX(0); }
+		.drawer-top { align-items: center; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; padding-bottom: 16px; }
+		.drawer-top h2 { font-size: 28px; }
+		.close-cart { background: transparent; border: 0; color: var(--plum); cursor: pointer; font-size: 25px; }
+		.cart-items { min-height: 150px; padding: 18px 0; }
+		.cart-row { align-items: center; border-bottom: 1px solid var(--line); display: flex; gap: 10px; justify-content: space-between; padding: 12px 0; }
+		.cart-row strong { color: var(--plum); display: block; font-size: 14px; }
+		.cart-row small { color: #927681; }
+		.remove-item { background: none; border: 0; color: var(--coral); cursor: pointer; font-size: 12px; }
+		.cart-total { border-top: 2px solid var(--plum); display: flex; font-size: 18px; font-weight: 800; justify-content: space-between; padding: 15px 0; }
+		.checkout-form { display: grid; gap: 10px; }
+		.checkout-form label { color: var(--plum); font-size: 13px; font-weight: 700; }
+		.checkout-form input, .checkout-form textarea, .checkout-form select { border: 1px solid var(--line); color: var(--ink); font-family: inherit; font-size: 13px; padding: 10px; width: 100%; }
+		.checkout-form textarea { min-height: 75px; resize: vertical; }
+		.submit-order { background: var(--plum); border: 0; color: #fff; cursor: pointer; font-family: inherit; font-weight: 700; margin-top: 8px; padding: 12px; }
+		.empty-cart { color: #927681; font-size: 14px; padding: 35px 0; text-align: center; }
+		.drawer-overlay { background: rgba(49,33,46,.35); inset: 0; opacity: 0; pointer-events: none; position: fixed; transition: opacity .3s; z-index: 9; }
+		.drawer-overlay.open { opacity: 1; pointer-events: auto; }
+		.visit { background: var(--plum); color: #fff; }
+		.visit-grid { align-items: center; display: grid; gap: 50px; grid-template-columns: 1.2fr 1fr; }
+		.visit h2 { color: #fff; }
+		.visit p { color: #f5dce7; margin: 14px 0 25px; }
+		.visit .primary-btn { background: var(--coral); display: inline-block; }
+		.address { background: #fff; color: var(--ink); padding: 28px; }
+		.address-label { color: var(--coral); font-size: 12px; font-weight: 800; }
+		.address strong { color: var(--plum); display: block; font-size: 20px; margin: 6px 0 14px; }
+		.address p { color: #806b75; font-size: 14px; margin: 0; }
+		footer { background: #241821; color: #d8bdca; font-size: 12px; padding: 18px 0; text-align: center; }
+		@media (max-width: 760px) {
+			.topbar .container { justify-content: center; text-align: center; }
+			.topbar span:last-child, .nav-links { display: none; }
+			nav { min-height: 68px; }
+			.hero { padding: 48px 0 60px; }
+			.hero-grid, .visit-grid { grid-template-columns: 1fr; gap: 35px; }
+			.hero-photo { height: 330px; order: -1; }
+			.hero-photo img { width: 90%; }
+			.benefit-grid, .product-grid { grid-template-columns: repeat(2, 1fr); }
+			.product img { height: 170px; }
+			section { padding: 58px 0; }
+			.section-head { align-items: start; flex-direction: column; gap: 9px; }
+		}
+		@media (max-width: 420px) { .container { width: min(100% - 28px, 1120px); } .benefit-grid, .product-grid { grid-template-columns: 1fr; } .hero-actions { align-items: start; flex-direction: column; } }
+	</style>
+</head>
+<body>
+	<div class="topbar"><div class="container"><span>✨ اختاري لونك... وسيبي الباقي علينا</span><span>شبرا مصر | مول الأمير | الدور الثالث</span></div></div>
+	<header>
+		<div class="container">
+			<nav>
+				<a class="logo" href="#home" aria-label="جلوري للهارد جيل والأظافر">
+					<span class="logo-mark">✦</span><span><strong>Glory</strong><small>HARD GEL & NAILS</small></span>
+				</a>
+				<div class="nav-links"><a href="#products">المنتجات</a><a href="#why-us">ليه جلوري؟</a><a href="#visit">زورينا</a></div>
+				<button class="cart-button" type="button" id="open-cart">السلة <span class="cart-count" id="cart-count">0</span></button>
+			</nav>
+		</div>
+	</header>
+
+	<main>
+		<section class="hero" id="home">
+			<div class="container hero-grid">
+				<div class="hero-copy">
+					<div class="eyebrow">BEAUTY STARTS HERE</div>
+					<h1>لمسة <span>جلوري</span><br>تكمّل جمالك</h1>
+					<p>كل اللي أظافرك بتحبه في مكان واحد. هارد جيل بخامات أصلية، ألوان مبهجة، وتفاصيل صغيرة تفرق في كل لوك.</p>
+					<div class="hero-actions"><a class="primary-btn" href="#products">اطلبي أونلاين</a><a class="secondary-btn" href="#visit">فين مكاننا؟ ↓</a></div>
+				</div>
+				<div class="hero-photo"><img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=900&q=85" alt="ألوان هارد جيل وأظافر ملونة"><div class="photo-tag"><b>+100</b> لون مستنيكي</div></div>
+			</div>
+		</section>
+
+		<section class="benefits" id="why-us">
+			<div class="container"><div class="section-head"><h2>كل تفصيلة محسوبة</h2><p>علشان تجربتك مع جلوري تكون أسهل وأجمل</p></div>
+				<div class="benefit-grid"><article class="benefit"><div class="benefit-icon">💅</div><h3>خامات أصلية</h3><p>منتجات مختارة بعناية لنتيجة ثابتة ولمعة تدوم.</p></article><article class="benefit"><div class="benefit-icon">🎨</div><h3>ألوان على مزاجك</h3><p>درجات كلاسيك، جريئة، وناعمة لكل شخصية ومناسبة.</p></article><article class="benefit"><div class="benefit-icon">💗</div><h3>اختيار بمساعدة</h3><p>محتارة؟ فريقنا يساعدك تلاقي اللون والمنتج المناسب.</p></article></div>
+			</div>
+		</section>
+
+		<section class="products" id="products">
+			<div class="container"><div class="section-head"><h2>اختيارات جلوري</h2><p>ألوان، استراس، أجهزة، رموش، وضوافر لكل احتياجاتك</p></div>
+				<div class="product-grid">
+					<article class="product"><img src="https://images.unsplash.com/photo-1610992015732-2449b76344bc?auto=format&fit=crop&w=600&q=85" alt="هارد جيل وردي"><div class="product-body"><small>الأكثر طلبًا</small><h3>Hard Gel Pink</h3><p>درجة وردي ناعمة وسهلة الدمج</p><span class="product-price">١٥٠ ج.م</span><button class="add-to-cart" data-name="Hard Gel Pink" data-price="150">أضيفي للسلة</button></div></article>
+					<article class="product"><img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&w=600&q=85" alt="مناكير أحمر"><div class="product-body"><small>NEW IN</small><h3>Ruby Red</h3><p>أحمر غني للحضور اللافت</p><span class="product-price">١٢٠ ج.م</span><button class="add-to-cart" data-name="Ruby Red" data-price="120">أضيفي للسلة</button></div></article>
+					<article class="product"><img src="https://images.unsplash.com/photo-1607779097040-26e80aa78e66?auto=format&fit=crop&w=600&q=85" alt="أظافر ملونة"><div class="product-body"><small>اختيار جلوري</small><h3>Color Pop</h3><p>ألوان مرحة تفرّح يومك</p><span class="product-price">١٢٠ ج.م</span><button class="add-to-cart" data-name="Color Pop" data-price="120">أضيفي للسلة</button></div></article>
+					<article class="product"><img src="https://images.unsplash.com/photo-1599948128020-9a44505b0d32?auto=format&fit=crop&w=600&q=85" alt="أظافر فرنش"><div class="product-body"><small>كلاسيك</small><h3>French Essentials</h3><p>أناقة بسيطة لكل وقت</p><span class="product-price">١٣٠ ج.م</span><button class="add-to-cart" data-name="French Essentials" data-price="130">أضيفي للسلة</button></div></article>
+					<article class="product"><img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=600&q=85" alt="استراس لتزيين الأظافر"><div class="product-body"><small>للمسة لامعة</small><h3>استراس Nail Art</h3><p>أحجار لامعة لتصميم مختلف</p><span class="product-price">٨٠ ج.م</span><button class="add-to-cart" data-name="استراس Nail Art" data-price="80">أضيفي للسلة</button></div></article>
+					<article class="product"><img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=600&q=85" alt="أجهزة تجميل الأظافر"><div class="product-body"><small>للمحترفات</small><h3>أجهزة أظافر</h3><p>أجهزة عملية للشغل المنزلي والصالونات</p><span class="product-price">ابدئي من ٤٥٠ ج.م</span><button class="add-to-cart" data-name="أجهزة أظافر" data-price="450">أضيفي للسلة</button></div></article>
+					<article class="product"><img src="https://images.unsplash.com/photo-1583001809873-a128495da465?auto=format&fit=crop&w=600&q=85" alt="رموش صناعية"><div class="product-body"><small>لوك كامل</small><h3>رموش جذابة</h3><p>كثافة مريحة وشكل طبيعي أو جريء</p><span class="product-price">١٠٠ ج.م</span><button class="add-to-cart" data-name="رموش جذابة" data-price="100">أضيفي للسلة</button></div></article>
+					<article class="product"><img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=600&q=85" alt="ضوافر تركيب"><div class="product-body"><small>سريعة وسهلة</small><h3>ضوافر تركيب</h3><p>أشكال وأطوال تناسب كل إطلالة</p><span class="product-price">١٨٠ ج.م</span><button class="add-to-cart" data-name="ضوافر تركيب" data-price="180">أضيفي للسلة</button></div></article>
+				</div>
+			</div>
+		</section>
+
+		<section class="visit" id="visit"><div class="container visit-grid"><div><div class="eyebrow">COME SAY HI</div><h2>مستنيينك في جلوري</h2><p>تعالي شوفي الألوان على الطبيعة، اختاري براحتك، وخدي نصيحة تناسب أظافرك وستايلك.</p><a class="primary-btn" href="https://www.google.com/maps/search/?api=1&query=مول+الأمير+شارع+خلوصي+شبرا+مصر" target="_blank" rel="noopener">افتحي اللوكيشن ↗</a></div><div class="address"><span class="address-label">العنوان بالتفصيل</span><strong>جلوري للهارد جيل والأظافر</strong><p>شبرا مصر، شارع خلوصي<br>مول الأمير، الدور الثالث</p></div></div></section>
+	</main>
+	<div class="drawer-overlay" id="drawer-overlay"></div>
+	<aside class="cart-drawer" id="cart-drawer" aria-label="سلة المشتريات">
+		<div class="drawer-top"><h2>سلة طلبك</h2><button class="close-cart" id="close-cart" type="button" aria-label="إغلاق السلة">×</button></div>
+		<div class="cart-items" id="cart-items"><p class="empty-cart">السلة لسه فاضية، اختاري اللي يعجبك 💗</p></div>
+		<div class="cart-total"><span>الإجمالي</span><span id="cart-total">0 ج.م</span></div>
+		<form class="checkout-form" id="checkout-form">
+			<label for="customer-name">الاسم</label><input id="customer-name" name="name" required placeholder="اكتبي اسمك">
+			<label for="customer-phone">رقم الموبايل</label><input id="customer-phone" name="phone" type="tel" required placeholder="01xxxxxxxxx">
+			<label for="customer-address">عنوان التوصيل</label><textarea id="customer-address" name="address" required placeholder="المحافظة، المنطقة، الشارع... "></textarea>
+			<label for="payment-method">طريقة الدفع</label><select id="payment-method" name="payment"><option>الدفع عند الاستلام</option><option>تحويل بنكي عند تأكيد الطلب</option></select>
+			<button class="submit-order" type="submit">تأكيد الطلب أونلاين</button>
+		</form>
+	</aside>
+	<footer>جلوري للهارد جيل والأظافر © 2026 · طلبك يوصل لحد بابك</footer>
+	<script>
+		const cart = [];
+		const drawer = document.getElementById("cart-drawer");
+		const overlay = document.getElementById("drawer-overlay");
+		const cartItems = document.getElementById("cart-items");
+		const cartCount = document.getElementById("cart-count");
+		const cartTotal = document.getElementById("cart-total");
+
+		function toggleCart(open) {
+			drawer.classList.toggle("open", open);
+			overlay.classList.toggle("open", open);
+		}
+
+		function renderCart() {
+			cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+			const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+			cartTotal.textContent = `${total} ج.م`;
+			cartItems.innerHTML = cart.length ? cart.map((item, index) => `<div class="cart-row"><div><strong>${item.name}</strong><small>${item.price} ج.م × ${item.quantity}</small></div><button class="remove-item" type="button" data-index="${index}">حذف</button></div>`).join("") : '<p class="empty-cart">السلة لسه فاضية، اختاري اللي يعجبك 💗</p>';
+			cartItems.querySelectorAll(".remove-item").forEach(button => button.addEventListener("click", () => { cart.splice(Number(button.dataset.index), 1); renderCart(); }));
+		}
+
+		document.querySelectorAll(".add-to-cart").forEach(button => button.addEventListener("click", () => {
+			const existing = cart.find(item => item.name === button.dataset.name);
+			existing ? existing.quantity++ : cart.push({ name: button.dataset.name, price: Number(button.dataset.price), quantity: 1 });
+			renderCart();
+			toggleCart(true);
+		}));
+		document.getElementById("open-cart").addEventListener("click", () => toggleCart(true));
+		document.getElementById("close-cart").addEventListener("click", () => toggleCart(false));
+		overlay.addEventListener("click", () => toggleCart(false));
+		document.getElementById("checkout-form").addEventListener("submit", event => {
+			event.preventDefault();
+			if (!cart.length) { alert("اختاري منتج واحد على الأقل قبل تأكيد الطلب."); return; }
+			alert("تم استلام طلبك بنجاح! هنتواصل معاكي لتأكيد التفاصيل وموعد التوصيل.");
+			cart.length = 0;
+			renderCart();
+			event.target.reset();
+			toggleCart(false);
+		});
+	</script>
+</body>
+</html>

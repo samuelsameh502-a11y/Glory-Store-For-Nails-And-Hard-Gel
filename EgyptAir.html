@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مصر للطيران - محاكاة موقع</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #f4f6f9;
+            color: #333;
+        }
+
+        /* الهيدر والشعار */
+        header {
+            background-color: #002b49; /* لون مصر للطيران الشهير */
+            color: white;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 24px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+
+        /* قسم البحث والحجز */
+        .hero {
+            background: linear-gradient(rgba(0,43,73,0.7), rgba(0,43,73,0.7)), url('https://via.placeholder.com/1200x400') no-repeat center/cover;
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .booking-card {
+            background: white;
+            color: #333;
+            max-width: 800px;
+            margin: -40px auto 40px auto;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        .booking-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            text-align: right;
+        }
+
+        .form-group label {
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .form-group input, .form-group select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .btn-submit {
+            grid-column: 1 / -1;
+            background-color: #d99b26; /* لون ذهبي مميز */
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3fr;
+        }
+
+        .btn-submit:hover {
+            background-color: #b8821d;
+        }
+
+        /* نتائج البحث */
+        .results {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .flight-item {
+            background: white;
+            border: 1px solid #e0e0e0;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #001f35;
+            color: white;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>EGYPTAIR | مصر للطيران</h1>
+        <nav>
+            <a href="#">الرئيسية</a>
+            <a href="#">حجز الرحلات</a>
+            <a href="#">إدارة الحجز</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>سافر مع مصر للطيران إلى العالم</h2>
+    </section>
+
+    <div class="booking-card">
+        <form class="booking-form" id="searchForm">
+            <div class="form-group">
+                <label>من</label>
+                <select id="from">
+                    <option value="القاهرة (CAI)">القاهرة (CAI)</option>
+                    <option value="برج العرب (HBE)">الإسكندرية (HBE)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>إلى</label>
+                <select id="to">
+                    <option value="دبي (DXB)">دبي (DXB)</option>
+                    <option value="لندن (LHR)">لندن (LHR)</option>
+                    <option value="جدة (JED)">جدة (JED)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>تاريخ السفر</label>
+                <input type="date" id="date" required>
+            </div>
+            <div class="form-group">
+                <label>الدرجة</label>
+                <select>
+                    <option>السياحية</option>
+                    <option>رجال الأعمال</option>
+                </select>
+            </div>
+            <button type="submit" class="btn-submit">ابحث عن الرحلات</button>
+        </form>
+    </div>
+
+    <div class="results" id="resultsContainer" style="display: none;">
+        <h3>الرحلات المتاحة:</h3>
+        <br>
+        <div class="flight-item">
+            <div>
+                <strong id="flightRoute">القاهرة -> دبي</strong>
+                <p>المغادرة: 08:00 صباحاً</p>
+            </div>
+            <div>
+                <strong>$450</strong>
+                <button style="padding: 8px 15px; background-color: #002b49; color: white; border: none; border-radius: 4px; cursor: pointer;">حجز</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 محاكاة موقع مصر للطيران - لأغراض التعلم</p>
+    </footer>
+
+    <script>
+        document.getElementById('searchForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const from = document.getElementById('from').value;
+            const to = document.getElementById('to').value;
+            
+            document.getElementById('flightRoute').textContent = `${from} ➔ ${to}`;
+            document.getElementById('resultsContainer').style.display = 'block';
+        });
+    </script>
+</body>
+</html>

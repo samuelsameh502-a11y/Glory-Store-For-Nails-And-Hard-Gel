@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قسم المسامير والصواميل - البراموسي</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="Website El Baramousy.htmlغ">
+    <style>
+        :root {
+            --primary-color: #d97706;
+            --dark-color: #1f2937;
+            --light-color: #f3f4f6;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Tajawal', sans-serif; }
+        body { background-color: var(--light-color); color: var(--dark-color); }
+
+        header {
+            background-color: var(--dark-color);
+            color: var(--white);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-btn {
+            color: var(--white);
+            text-decoration: none;
+            background-color: var(--primary-color);
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .container { padding: 40px 5%; }
+        .page-title { text-align: center; margin-bottom: 30px; }
+
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .item-card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .item-card:hover { transform: translateY(-5px); }
+
+        .item-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .item-details { padding: 20px; }
+        .item-title { font-size: 1.3rem; margin-bottom: 10px; color: var(--dark-color); }
+        .item-specs { font-size: 0.95rem; color: #555; margin-bottom: 15px; }
+        
+        .price-tag {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .order-btn {
+            display: block;
+            text-align: center;
+            background-color: #25d366;
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h2>البراموسي - كالوج المسامير والصواميل</h2>
+        <a href="Bolts.html" class="back-btn"><i class="fa-solid fa-arrow-right"></i> الرجوع للرئيسية</a>
+    </header>
+
+    <div class="container">
+        <h1 class="page-title">جميع أنواع المقاسات والأسعار</h1>
+
+        <div class="items-grid">
+
+            <div class="item-card">
+                <img src="https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?q=80&w=500" alt="مسامير صلب">
+                <div class="item-details">
+                    <h3 class="item-title">مسمار صلب سداسي (Hex Bolt)</h3>
+                    <div class="item-specs">
+                        <p><strong>المقاسات المتاحة:</strong> M6 إلى M20</p>
+                        <p><strong>الخامة:</strong> صلب مقوى (Grade 8.8 / 10.9)</p>
+                    </div>
+                    <div class="price-tag">يبدأ من 5 ج.م / للقطعة</div>
+                    <a href="https://wa.me/201227305897?text=أحتاج%20استفسار%20عن%20المسامير%20الصلب%20السداسية" class="order-btn" target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i> اطلب الآن عبر الواتساب
+                    </a>
+                </div>
+            </div>
+
+            <div class="item-card">
+                <img src="https://images.unsplash.com/photo-1608613304899-ea8098577e38?q=80&w=500" alt="صواميل استانلس">
+                <div class="item-details">
+                    <h3 class="item-title">صواميل استانلس (Stainless Nuts)</h3>
+                    <div class="item-specs">
+                        <p><strong>المقاسات المتاحة:</strong> M4 إلى M16</p>
+                        <p><strong>الخامة:</strong> استانلس 304 و 316 (مقاوم للصدأ)</p>
+                    </div>
+                    <div class="price-tag">اتصل أو راسلنا لمعرفة سعر الجملة</div>
+                    <a href="https://wa.me/201227305897?text=أحتاج%20استفسار%20عن%20الصواميل%20الاستانلس" class="order-btn" target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i> اطلب الآن عبر الواتساب
+                    </a>
+                </div>
+            </div>
+
+            <div class="item-card">
+                <img src="https://images.unsplash.com/photo-1508873696983-2df515122519?q=80&w=500" alt="مسامير سن صاج">
+                <div class="item-details">
+                    <h3 class="item-title">مسامير سن صاج وخشب</h3>
+                    <div class="item-specs">
+                        <p><strong>المقاسات المتاحة:</strong> متنوعة بالعلبة أو الكيلو</p>
+                        <p><strong>الخامة:</strong> مجلفن / أسود</p>
+                    </div>
+                    <div class="price-tag">سعر الكيلو حسب المقاس</div>
+                    <a href="https://wa.me/201227305897?text=أحتاج%20استفسار%20عن%20مسامير%20سن%20صاج" class="order-btn" target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i> اطلب الآن عبر الواتساب
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

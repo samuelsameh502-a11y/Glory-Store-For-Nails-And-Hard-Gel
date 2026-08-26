@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel X</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #0d0f1d;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    header {
+      width: 100%;
+      padding: 20px 0;
+      text-align: center;
+      background-color: #0f1123;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .logo span {
+      color: #a855f7;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 80px 20px 20px;
+      background: linear-gradient(rgba(15, 17, 35, 0.45), rgba(15, 17, 35, 0.65)),
+                  url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #e2e8f0;
+      margin-bottom: 35px;
+      font-weight: 300;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 36px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #ffffff;
+      text-decoration: none;
+      background: linear-gradient(135deg, #a855f7, #ec4899);
+      border-radius: 30px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(236, 72, 153, 0.5);
+    }
+
+    .services {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 20px;
+      background-color: #0d0f1d;
+    }
+
+    .cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    .card {
+      background-color: #14172b;
+      border: 1px solid #1e2238;
+      border-radius: 16px;
+      padding: 40px 25px;
+      text-align: center;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: #a855f7;
+    }
+
+    .icon-box {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 25px;
+      background: linear-gradient(135deg, #3b82f6, #a855f7);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.8rem;
+      color: #ffffff;
+    }
+
+    .card h3 {
+      font-size: 1.5rem;
+      color: #ec4899;
+      margin-bottom: 15px;
+
+    }
+
+    .card p {
+      color: #94a3b8;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Travel <span>X</span></div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Let's Explore The World</h1>
+      <p>Adventure starts here. Discover amazing places with us and create unforgettable memories.</p>
+      <a href="#services" class="btn">Explore Now</a>
+    </div>
+  </section>
+
+  <section id="services" class="services">
+    <div class="cards-container">
+      
+      <div class="card">
+        <div class="icon-box">
+          <i class="fa-solid => fa-plane"></i>
+        </div>
+        <h3>Flights</h3>
+        <p>Find the best flights with amazing offers.</p>
+      </div>
+
+      <div class="card">
+        <div class="icon-box">
+          <i class="fa-solid fa-hotel"></i>
+        </div>
+        <h3>Hotels</h3>
+        <p>Stay in luxury hotels around the world.</p>
+      </div>
+
+      <div class="card">
+        <div class="icon-box">
+          <i class="fa-solid fa-earth-americas"></i>
+        </div>
+        <h3>Destinations</h3>
+        <p>Explore the most beautiful places on Earth.</p>
+      </div>
+
+    </div>
+  </section>
+
+</body>
+</html>

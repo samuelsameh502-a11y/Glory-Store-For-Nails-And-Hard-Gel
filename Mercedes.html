@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mercedes | مستقبل القيادة</title>
+  <meta name="description" content="موقع مرسيدس أنيميشن كامل بتصميم فاخر، تجربة قيادة فاخرة، ومعلومات عن السيارات المميزة." />
+  <style>
+    :root {
+      --bg: #0a0d12;
+      --bg-soft: #121823;
+      --card: rgba(17, 22, 31, 0.78);
+      --card-strong: #101820;
+      --text: #eef3f8;
+      --muted: #aab7c5;
+      --line: rgba(255, 255, 255, 0.08);
+      --accent: #d9b36c;
+      --accent-2: #7ec8ff;
+      --success: #58d68d;
+      --shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(137, 160, 179, 0.12), transparent 32%),
+        linear-gradient(135deg, #070b10 0%, #0b121b 30%, #0f1720 100%);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      margin-bottom: 12px;
+      letter-spacing: -0.04em;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 640px;
+      margin-bottom: 38px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(14px);
+      background: rgba(9, 13, 18, 0.7);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 82px;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand-mark {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(240,210,154,0.18), rgba(185,127,43,0.08), rgba(241,212,166,0.14));
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 10px 28px rgba(184, 138, 68, 0.2);
+      overflow: hidden;
+    }
+
+    .brand-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 0 12px rgba(217, 179, 108, 0.4));
+      background: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .nav-links a {
+      position: relative;
+      transition: color 0.25s ease;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      transform: scaleX(0);
+      transition: transform 0.25s ease;
+      transform-origin: left;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-links a:hover::after {
+      transform: scaleX(1);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0.9rem 1.5rem;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      font-weight: 700;
+      min-height: 48px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #f3d6a1, #d6a968, #c1832d);
+      color: #0d1117;
+      box-shadow: 0 18px 40px rgba(196, 147, 75, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 22px 48px rgba(196, 147, 75, 0.5);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.03);
+      border-color: rgba(255,255,255,0.12);
+      color: var(--text);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.07);
+      transform: translateY(-2px);
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.02);
+      color: var(--text);
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 860px;
+      display: grid;
+      align-items: center;
+      padding: 54px 0 48px;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(8, 11, 16, 0.92) 0%, rgba(8,11,16,0.45) 38%, rgba(8,11,16,0.1) 100%),
+        url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      transform: scale(1.06);
+      animation: heroGlow 12s ease-in-out infinite alternate;
+    }
+
+    .hero-inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: center;
+      gap: 48px;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      font-size: 0.8rem;
+      margin-bottom: 20px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 20px rgba(217,179,108,0.8);
+    }
+
+    h1 {
+      font-size: clamp(2.7rem, 6vw, 6rem);
+      line-height: 0.96;
+      letter-spacing: -0.06em;
+      margin-bottom: 18px;
+    }
+
+    .hero-copy p {
+      font-size: 1.08rem;
+      color: rgba(238,243,248,0.8);
+      max-width: 560px;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 34px;
+    }
+
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 34px;
+    }
+
+    .stat {
+      min-width: 120px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: clamp(1.7rem, 3vw, 2.3rem);
+      font-weight: 900;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .hero-visual {
+      position: relative;
+      display: grid;
+      place-items: center;
+      min-height: 530px;
+    }
+
+    .car-card {
+      position: relative;
+      width: min(560px, 100%);
+      border: 1px solid rgba(255,255,255,0.12);
+      background: linear-gradient(180deg, rgba(12, 18, 26, 0.82), rgba(16, 24, 32, 0.42));
+      border-radius: 32px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      animation: floatCar 5.5s ease-in-out infinite;
+    }
+
+    .car-card::before {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border-radius: 26px;
+      border: 1px solid rgba(255,255,255,0.06);
+      pointer-events: none;
+    }
+
+    .car-image {
+      position: relative;
+      overflow: hidden;
+      border-radius: 26px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+      height: 360px;
+    }
+
+    .car-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(1.2) contrast(1.05);
+      transform: scale(1.08) translateY(8px);
+    }
+
+    .floating-tag {
+      position: absolute;
+      padding: 14px 18px;
+      border-radius: 18px;
+      background: rgba(12, 17, 24, 0.76);
+      border: 1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
+      animation: floatPanel 4s ease-in-out infinite;
+    }
+
+    .tag-1 {
+      top: 24px;
+      left: 20px;
+    }
+
+    .tag-2 {
+      right: 18px;
+      bottom: 18px;
+      animation-delay: 0.8s;
+    }
+
+    .floating-tag strong {
+      display: block;
+      font-size: 1.3rem;
+      line-height: 1;
+    }
+
+    .floating-tag span {
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
+
+    .section {
+      padding: 110px 0;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    .glass-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      position: relative;
+      background: linear-gradient(180deg, rgba(18,24,31,0.9), rgba(14,19,25,0.7));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius);
+      padding: 26px 22px;
+      overflow: hidden;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 14px 24px rgba(0,0,0,0.2);
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(217,179,108,0.5);
+      box-shadow: 0 24px 40px rgba(0,0,0,0.28);
+    }
+
+    .card .icon {
+      width: 62px;
+      height: 62px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, rgba(217,179,108,0.2), rgba(126,200,255,0.15));
+      border: 1px solid rgba(255,255,255,0.08);
+      font-size: 1.8rem;
+    }
+
+    .card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .models-wrap {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 26px;
+      align-items: stretch;
+    }
+
+    .model-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .model-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 20px 20px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 20px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      user-select: none;
+    }
+
+    .model-item.active,
+    .model-item:hover {
+      background: rgba(217,179,108,0.08);
+      border-color: rgba(217,179,108,0.5);
+      transform: translateX(-4px);
+    }
+
+    .model-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .model-badge {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      color: #0b1016;
+      background: linear-gradient(135deg, #eed4a1, #d8a15f);
+    }
+
+    .model-item h4 {
+      font-size: 1.2rem;
+      margin-bottom: 2px;
+    }
+
+    .model-item small {
+      color: var(--muted);
+    }
+
+    .model-price {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    .model-showcase {
+      position: relative;
+      background: linear-gradient(180deg, rgba(13, 19, 26, 0.96), rgba(20, 27, 36, 0.8));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 30px;
+      padding: 18px;
+      overflow: hidden;
+      min-height: 420px;
+    }
+
+    .showcase-content {
+      position: relative;
+      height: 100%;
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      overflow: hidden;
+    }
+
+    .showcase-hero {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      filter: saturate(1.15) contrast(1.07);
+      border-radius: 20px;
+      transition: 0.4s ease;
+    }
+
+    .showcase-info {
+      padding: 22px 10px 8px;
+    }
+
+    .showcase-info h3 {
+      font-size: clamp(1.8rem, 2vw, 2.4rem);
+      margin-bottom: 10px;
+    }
+
+    .showcase-info p {
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .spec-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.02);
+      color: var(--text);
+      font-size: 0.9rem;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .feature-card {
+      position: relative;
+      isolation: isolate;
+      min-height: 220px;
+      padding: 30px 24px 22px;
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: linear-gradient(180deg, rgba(18,24,31,0.85), rgba(12,17,22,0.78));
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: "";
+      position: absolute;
+      inset: -20% 35% auto auto;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(217,179,108,0.18), transparent 65%);
+      z-index: -1;
+    }
+
+    .feature-card .icon {
+      width: 70px;
+      height: 70px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(126,200,255,0.15), rgba(217,179,108,0.12));
+      display: grid;
+      place-items: center;
+      font-size: 2rem;
+      margin-bottom: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 0.8fr;
+      gap: 18px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 28px;
+      min-height: 240px;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+
+    .gallery-item.tall {
+      min-height: 520px;
+      grid-row: span 2;
+    }
+
+    .gallery-item.medium {
+      min-height: 250px;
+    }
+
+    .cta {
+      position: relative;
+      padding: 66px 28px;
+      background: linear-gradient(135deg, rgba(10,13,18,0.8), rgba(24,31,41,0.72)), url('https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .cta-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    .cta h2 {
+      font-size: clamp(2rem, 3vw, 3rem);
+      margin-bottom: 10px;
+    }
+
+    .cta p {
+      color: rgba(238,243,248,0.75);
+      max-width: 640px;
+    }
+
+    .footer {
+      padding: 28px 0 48px;
+      color: var(--muted);
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .socials {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .socials a {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: 0.25s ease;
+    }
+
+    .socials a:hover {
+      transform: translateY(-3px);
+      border-color: rgba(217,179,108,0.5);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes heroGlow {
+      0% { transform: scale(1.05) translateY(0); filter: brightness(0.9); }
+      100% { transform: scale(1.12) translateY(-10px); filter: brightness(1.05); }
+    }
+
+    @keyframes floatCar {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-12px); }
+    }
+
+    @keyframes floatPanel {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @media (max-width: 980px) {
+      .hero-inner,
+      .models-wrap,
+      .feature-grid,
+      .glass-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .gallery-item.tall {
+        grid-row: span 1;
+        min-height: 320px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav-links {
+        position: absolute;
+        top: 82px;
+        left: 18px;
+        right: 18px;
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        background: rgba(12,17,22,0.96);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 18px;
+        padding: 20px;
+        box-shadow: var(--shadow);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-actions .btn-secondary {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .section {
+        padding: 80px 0;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        min-height: 420px;
+      }
+
+      .car-card {
+        padding: 14px;
+      }
+
+      .car-image {
+        height: 280px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <div class="brand" aria-label="Mercedes logo">
+        <div class="brand-mark">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/9/90/Mercedes-Logo.svg" alt="Mercedes logo" />
+        </div>
+        <span>Mercedes</span>
+      </div>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#home">الرئيسية</a>
+        <a href="#models">الموديلات</a>
+        <a href="#features">المزايا</a>
+        <a href="#gallery">المعرض</a>
+        <a href="#contact">تواصل</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn btn-secondary" href="#contact">احجز الآن</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-inner">
+        <div class="hero-copy reveal">
+          <div class="eyebrow">Mercedes-Benz</div>
+          <h1>القيادة<br />بأسلوب<br />مستقبلي.</h1>
+          <p>
+            اختَر تجربة قيادة تجمع بين القوة، الفخامة، والتقنيات المتقدمة في كل تفاصيل السيارة،
+            لتعيش يومك بكل ثقة وأناقة داخل كل ميزة من ميزات مرسيدس.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#models" class="btn btn-primary">استكشف الموديلات</a>
+            <a href="#features" class="btn btn-secondary">اكتشف المزايا</a>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <strong>4.9</strong>
+              <span>تقييم العملاء</span>
+            </div>
+            <div class="stat">
+              <strong>250+</strong>
+              <span>سيارة في المعرض</span>
+            </div>
+            <div class="stat">
+              <strong>24/7</strong>
+              <span>دعم فني</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="car-card">
+            <div class="floating-tag tag-1">
+              <strong>AMG</strong>
+              <span>أداء استثنائي</span>
+            </div>
+
+            <div class="car-image">
+              <img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=1200&q=80" alt="Mercedes car" />
+            </div>
+
+            <div class="floating-tag tag-2">
+              <strong>0-100</strong>
+              <span>في 3.8 ثانية</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <h2 class="section-title">ما يميز سيارات مرسيدس</h2>
+            <p class="section-subtitle">كل سيارة تحمل في داخلها توازنًا بين الأداء الرفيع والأناقة المتطورة والذكاء الصناعي.</p>
+          </div>
+        </div>
+
+        <div class="glass-grid">
+          <article class="card reveal">
+            <div class="icon">⚡</div>
+            <h3>أداء فائق</h3>
+            <p>محركات قوية وسريعة الاستجابة، مع تجربة قيادة أنيقة ومخصصة للأجواء الحضرية والسريعة.</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="icon">🛡️</div>
+            <h3>سلامة ذكية</h3>
+            <p>نظام حماية متقدم يضمن رؤية واضحة وأمان كامل عند القيادة في مختلف الظروف والطرق.</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="icon">🎧</div>
+            <h3>داخلية فاخره</h3>
+            <p>مقاعد فاخرة، نظام صوتي موّحد، وشاشة ذكية توفر تجربة راحة وتجهيزات متقدمة.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="models">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <h2 class="section-title">أفضل الموديلات</h2>
+            <p class="section-subtitle">اختر الطراز الذي يناسب أسلوب حياتك، من المدينة إلى الطريق المفتوح.</p>
+          </div>
+        </div>
+
+        <div class="models-wrap">
+          <div class="model-list reveal" id="modelList">
+            <div class="model-item active" data-model="cclass">
+              <div class="model-meta">
+                <div class="model-badge">C</div>
+                <div>
+                  <h4>C-Class</h4>
+                  <small>سيدان أنيقة</small>
+                </div>
+              </div>
+              <div class="model-price">من 220,000</div>
+            </div>
+
+            <div class="model-item" data-model="eclass">
+              <div class="model-meta">
+                <div class="model-badge">E</div>
+                <div>
+                  <h4>E-Class</h4>
+                  <small>راحة وقوة</small>
+                </div>
+              </div>
+              <div class="model-price">من 280,000</div>
+            </div>
+
+            <div class="model-item" data-model="glc">
+              <div class="model-meta">
+                <div class="model-badge">GLC</div>
+                <div>
+                  <h4>GLC</h4>
+                  <small>سيارة عائلية</small>
+                </div>
+              </div>
+              <div class="model-price">من 310,000</div>
+            </div>
+
+            <div class="model-item" data-model="amg">
+              <div class="model-meta">
+                <div class="model-badge">AMG</div>
+                <div>
+                  <h4>AMG GT</h4>
+                  <small>أداء رياضي</small>
+                </div>
+              </div>
+              <div class="model-price">من 560,000</div>
+            </div>
+          </div>
+
+          <div class="model-showcase reveal" id="modelShowcase">
+            <div class="showcase-content">
+              <img class="showcase-hero" id="showcaseImage" src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?auto=format&fit=crop&w=1200&q=80" alt="Mercedes model" />
+              <div class="showcase-info">
+                <h3 id="showcaseName">C-Class</h3>
+                <p id="showcaseDesc">سيارة فاخرة تجمع بين التوازن الدقيق بين الأداء والراحة داخل المدينة أو على الطريق المفتوح.</p>
+                <div class="spec-row" id="specRow">
+                  <span class="chip">قوة 255 حصان</span>
+                  <span class="chip">نظام عزم 9G</span>
+                  <span class="chip">سرعة 250 كم/س</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <h2 class="section-title">تجربة القيادة المتقدمة</h2>
+            <p class="section-subtitle">تقنيات ذكية تعطيك القيادة الأفضل في كل لحظة، مع تجربة مريحة وسريعة الاستجابة.</p>
+          </div>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card reveal">
+            <div class="icon">🧠</div>
+            <h3>الذكاء التكيفي</h3>
+            <p>يتعلم النظام سلوكك ويوفر لك إعدادات القيادة المثالية تلقائيًا.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="icon">📡</div>
+            <h3>اتصال متقدم</h3>
+            <p>نظام الملاحة الذكي، الاتصال السريع، ومزامنة الهاتف داخل شاشة القيادة.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="icon">🌙</div>
+            <h3>إضاءة ذكية</h3>
+            <p>أنظمة إضاءة ذكية تضمن رؤية ممتازة في النهار والليل ولفترات الطقس المختلفة.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="icon">🔋</div>
+            <h3>كفاءة عالية</h3>
+            <p>محركات مبتكرة توفر توازنًا ممتازًا بين القوة والتوفير وتقليل الانبعاثات.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <h2 class="section-title">معرض السيارات</h2>
+            <p class="section-subtitle">استمتع بتصميمات فاخرة ومتعددة تجعل كل سيارة مرسيدس تجربة بصريّة فريدة.</p>
+          </div>
+        </div>
+
+        <div class="gallery-grid reveal">
+          <div class="gallery-item tall">
+            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80" alt="Mercedes front view" />
+          </div>
+          <div class="gallery-item medium">
+            <img src="https://images.unsplash.com/photo-1494905998402-395d579af36f?auto=format&fit=crop&w=900&q=80" alt="Mercedes side view" />
+          </div>
+          <div class="gallery-item medium">
+            <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=900&q=80" alt="Mercedes interior" />
+          </div>
+          <div class="gallery-item medium">
+            <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=900&q=80" alt="Mercedes exterior" />
+          </div>
+          <div class="gallery-item medium">
+            <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=900&q=80" alt="Mercedes luxury detail" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="cta reveal">
+          <div class="cta-inner">
+            <div>
+              <h2>ابدأ رحلتك مع مرسيدس اليوم</h2>
+              <p>احجز موعدك الآن واستمتع بتجربة شراء مخصصة، مع فريق متخصص يساعدك على الاختيار بعناية.</p>
+            </div>
+            <a href="mailto:hello@mercedes.com" class="btn btn-primary">تواصل معنا</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>© 2026 Mercedes-Benz. كل الحقوق محفوظة.</div>
+      <div class="socials" aria-label="وسائل التواصل">
+        <a href="#" aria-label="إكس">𝕏</a>
+        <a href="#" aria-label="إنستغرام">◎</a>
+        <a href="#" aria-label="يوتيوب">◉</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const modelData = {
+      cclass: {
+        name: 'C-Class',
+        desc: 'سيارة فاخرة تجمع بين التوازن الدقيق بين الأداء والراحة داخل المدينة أو على الطريق المفتوح.',
+        image: 'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?auto=format&fit=crop&w=1200&q=80',
+        specs: ['قوة 255 حصان', 'نظام عزم 9G', 'سرعة 250 كم/س']
+      },
+      eclass: {
+        name: 'E-Class',
+        desc: 'تصميم فاخر، ركوب هادئ، وقدرات ممتازة تجعل كل رحلة تنقلها إلى تجربة أوسع وأهدأ.',
+        image: 'https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=1200&q=80',
+        specs: ['قوة 320 حصان', 'حزمة أمان متقدمة', 'تجهيز داخلي فخم']
+      },
+      glc: {
+        name: 'GLC',
+        desc: 'سيارة عائلية مستقرة وعصرية، مناسبة للرحلات اليومية والمغامرات العائلية كل على حدة.',
+        image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80',
+        specs: ['قوة 290 حصان', 'دفع رباعي', 'مساحة داخلية واسعة']
+      },
+      amg: {
+        name: 'AMG GT',
+        desc: 'مستوى رياضي متقدم، تصميمات قوية، وتسارع مذهل يمنحك لمسة من الإثارة الحقيقية.',
+        image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1200&q=80',
+        specs: ['قوة 523 حصان', 'تسارع فوري', 'تصميم رياضي متفوق']
+      }
+    };
+
+    const modelItems = document.querySelectorAll('.model-item');
+    const showcaseName = document.getElementById('showcaseName');
+    const showcaseDesc = document.getElementById('showcaseDesc');
+    const showcaseImage = document.getElementById('showcaseImage');
+    const specRow = document.getElementById('specRow');
+
+    modelItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const key = item.dataset.model;
+        const model = modelData[key];
+
+        modelItems.forEach(el => el.classList.remove('active'));
+        item.classList.add('active');
+
+        showcaseName.textContent = model.name;
+        showcaseDesc.textContent = model.desc;
+        showcaseImage.src = model.image;
+        specRow.innerHTML = model.specs.map(spec => `<span class="chip">${spec}</span>`).join('');
+      });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+  </script>
+</body>
+</html>

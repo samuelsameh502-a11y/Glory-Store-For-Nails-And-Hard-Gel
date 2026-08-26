@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>رِحال | احجز رحلتك القادمة</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+	<style>
+		:root {
+			--ink: #172735;
+			--muted: #6d7b82;
+			--cream: #f8f6f0;
+			--white: #ffffff;
+			--coral: #ef725b;
+			--teal: #2e9991;
+			--gold: #f3b657;
+			--line: #e6e7e1;
+		}
+		* { box-sizing: border-box; }
+		html { scroll-behavior: smooth; }
+		body { margin: 0; background: var(--cream); color: var(--ink); font-family: Cairo, sans-serif; overflow-x: hidden; }
+		button, input, select { font: inherit; }
+		button { cursor: pointer; border: 0; }
+		.hero { min-height: 690px; position: relative; color: var(--white); overflow: hidden; background: #17333b; }
+		.hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(105deg, rgba(17, 43, 49, .93) 12%, rgba(17, 43, 49, .45) 59%, rgba(17, 43, 49, .2)), url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2000&q=85') center/cover; animation: zoom 14s ease-in-out infinite alternate; }
+		.nav, .hero-copy, .booking { position: relative; z-index: 1; }
+		.nav { width: min(1180px, calc(100% - 48px)); margin: auto; padding: 25px 0; display: flex; align-items: center; justify-content: space-between; }
+		.brand { display: flex; align-items: center; gap: 10px; color: var(--white); text-decoration: none; font-weight: 800; font-size: 25px; letter-spacing: -.5px; }
+		.brand-mark { width: 39px; height: 39px; display: grid; place-items: center; border-radius: 13px 13px 13px 4px; color: var(--ink); background: var(--gold); transform: rotate(-12deg); }
+		.brand-mark span { transform: rotate(12deg); }
+		.nav-links { display: flex; gap: 30px; font-size: 14px; color: #dbe6e3; }
+		.nav-links a { color: inherit; text-decoration: none; transition: color .25s; }
+		.nav-links a:hover { color: var(--gold); }
+		.nav-action { padding: 10px 18px; border: 1px solid rgba(255,255,255,.4); border-radius: 30px; background: transparent; color: white; font-size: 13px; }
+		.hero-copy { width: min(1180px, calc(100% - 48px)); margin: 83px auto 0; animation: rise .8s ease both; }
+		.eyebrow { color: var(--gold); font-size: 13px; font-weight: 700; letter-spacing: 1px; }
+		h1 { max-width: 650px; margin: 17px 0 16px; font-size: clamp(42px, 6vw, 76px); line-height: 1.14; letter-spacing: -2px; }
+		h1 em { color: var(--gold); font-family: 'Playfair Display', serif; font-style: normal; }
+		.hero-copy p { max-width: 470px; margin: 0; color: #d8e5e2; font-size: 16px; line-height: 2; }
+		.booking { width: min(1120px, calc(100% - 48px)); margin: 72px auto 0; padding: 11px; display: grid; grid-template-columns: 1.15fr 1fr 1fr 1fr auto; gap: 6px; border-radius: 18px; background: var(--white); box-shadow: 0 20px 50px rgba(12, 32, 36, .22); color: var(--ink); animation: rise .9s .15s ease both; }
+		.field { min-width: 0; padding: 9px 15px; border-left: 1px solid var(--line); }
+		.field label { display: block; margin-bottom: 4px; color: var(--muted); font-size: 11px; }
+		.field select, .field input { width: 100%; padding: 0; border: 0; outline: 0; background: transparent; color: var(--ink); font-size: 14px; font-weight: 700; }
+		.search-btn { align-self: stretch; padding: 0 25px; border-radius: 12px; background: var(--coral); color: white; font-weight: 700; transition: transform .25s, background .25s; }
+		.search-btn:hover { background: #dc5d48; transform: translateY(-2px); }
+		.booking-result { width: min(1120px, calc(100% - 48px)); margin: 16px auto 0; color: var(--gold); font-size: 13px; min-height: 22px; }
+		.wave { position: absolute; bottom: -2px; left: 0; width: 100%; height: 80px; background: var(--cream); clip-path: ellipse(72% 65% at 50% 100%); }
+		.section { width: min(1180px, calc(100% - 48px)); margin: auto; padding: 78px 0; }
+		.section-head { display: flex; justify-content: space-between; align-items: end; margin-bottom: 28px; }
+		.section-kicker { color: var(--coral); font-size: 12px; font-weight: 800; }
+		h2 { margin: 5px 0 0; font-size: 31px; letter-spacing: -.8px; }
+		.view-all { color: var(--teal); text-decoration: none; font-size: 13px; font-weight: 700; }
+		.destinations { display: grid; grid-template-columns: repeat(4, 1fr); gap: 17px; }
+		.destination { position: relative; height: 270px; padding: 20px; display: flex; align-items: end; overflow: hidden; border-radius: 7px; color: white; background-size: cover; background-position: center; isolation: isolate; transition: transform .35s, box-shadow .35s; }
+		.destination::before { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(transparent 35%, rgba(10, 27, 32, .85)); }
+		.destination:hover { transform: translateY(-8px); box-shadow: 0 16px 30px rgba(23,39,53,.17); }
+		.destination:nth-child(1) { background-image: url('https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?auto=format&fit=crop&w=700&q=80'); }
+		.destination:nth-child(2) { background-image: url('https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&fit=crop&w=700&q=80'); }
+		.destination:nth-child(3) { background-image: url('https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=700&q=80'); }
+		.destination:nth-child(4) { background-image: url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=700&q=80'); }
+		.destination h3 { margin: 0; font-size: 20px; }
+		.destination small { display: block; color: #e3ebe8; font-size: 11px; }
+		.experience { display: grid; grid-template-columns: .9fr 1.1fr; gap: 70px; align-items: center; }
+		.experience-image { min-height: 390px; border-radius: 7px; background: url('https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1000&q=85') center/cover; }
+		.experience-text p { color: var(--muted); line-height: 2; }
+		.perks { display: grid; grid-template-columns: 1fr 1fr; gap: 19px 28px; margin-top: 28px; }
+		.perk { display: flex; gap: 12px; align-items: start; font-size: 13px; font-weight: 700; }
+		.perk-icon { flex: 0 0 35px; height: 35px; display: grid; place-items: center; border-radius: 50%; background: #dcefeb; color: var(--teal); }
+		footer { padding: 28px max(24px, calc((100% - 1180px) / 2)); display: flex; justify-content: space-between; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
+		@keyframes zoom { to { transform: scale(1.06); } }
+		@keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+		@media (max-width: 800px) { .hero { min-height: 790px; } .nav-links { display: none; } .hero-copy { margin-top: 60px; } .booking { grid-template-columns: 1fr 1fr; margin-top: 50px; } .field:nth-child(2) { border-left: 0; } .search-btn { min-height: 54px; grid-column: span 2; } .destinations { grid-template-columns: 1fr 1fr; } .experience { grid-template-columns: 1fr; gap: 30px; } .experience-image { min-height: 290px; } }
+		@media (max-width: 500px) { .nav, .hero-copy, .booking, .booking-result, .section { width: min(100% - 32px, 1180px); } h1 { font-size: 43px; } .booking { grid-template-columns: 1fr; } .field, .field:nth-child(2) { border-left: 0; border-bottom: 1px solid var(--line); padding-bottom: 12px; } .search-btn { grid-column: auto; } .destinations { grid-template-columns: 1fr; } .destination { height: 220px; } .section { padding: 55px 0; } footer { display: block; line-height: 2; } }
+	</style>
+</head>
+<body>
+	<header class="hero">
+		<nav class="nav">
+			<a class="brand" href="#top"><span class="brand-mark"><span>✦</span></span>رِحال</a>
+			<div class="nav-links"><a href="#destinations">الوجهات</a><a href="#experience">تجربتنا</a><a href="#offers">العروض</a></div>
+			<button class="nav-action" onclick="document.querySelector('.booking').scrollIntoView({behavior:'smooth'})">تسجيل الدخول</button>
+		</nav>
+		<div class="hero-copy" id="top">
+			<div class="eyebrow">العالم أقرب مما تتخيل</div>
+			<h1>احجز لحظتك<br>القادمة في <em>العالم</em></h1>
+			<p>رحلات مختارة بعناية، وتجارب لا تُنسى. ابدأ مغامرتك القادمة معنا بكل سهولة.</p>
+		</div>
+		<form class="booking" id="booking-form">
+			<div class="field"><label for="destination">إلى أين تريد الذهاب؟</label><select id="destination"><option>اختر وجهة</option><option>بالما، إسبانيا</option><option>كابادوكيا، تركيا</option><option>البندقية، إيطاليا</option><option>باريس، فرنسا</option></select></div>
+			<div class="field"><label for="start-date">تاريخ المغادرة</label><input id="start-date" type="date"></div>
+			<div class="field"><label for="end-date">تاريخ العودة</label><input id="end-date" type="date"></div>
+			<div class="field"><label for="guests">المسافرون</label><select id="guests"><option>شخص واحد</option><option>شخصان</option><option>3 أشخاص</option><option>4+ أشخاص</option></select></div>
+			<button class="search-btn" type="submit">ابحث عن رحلة ↗</button>
+		</form>
+		<div class="booking-result" id="booking-result" aria-live="polite"></div>
+		<div class="wave"></div>
+	</header>
+	<main>
+		<section class="section" id="destinations">
+			<div class="section-head"><div><div class="section-kicker">وجهات تستحق الزيارة</div><h2>اختر مزاج رحلتك</h2></div><a class="view-all" href="#booking-form">استكشف كل الوجهات ←</a></div>
+			<div class="destinations"><article class="destination"><div><h3>البحر المتوسط</h3><small>من 4,200 ج.م للفرد</small></div></article><article class="destination"><div><h3>كابادوكيا</h3><small>من 7,850 ج.م للفرد</small></div></article><article class="destination"><div><h3>البندقية</h3><small>من 9,100 ج.م للفرد</small></div></article><article class="destination"><div><h3>باريس</h3><small>من 12,400 ج.م للفرد</small></div></article></div>
+		</section>
+		<section class="section experience" id="experience"><div class="experience-image"></div><div class="experience-text"><div class="section-kicker">لماذا رِحال؟</div><h2>نرتب التفاصيل،<br>لتعيش الحكاية</h2><p>من أول خطوة حتى العودة، نختار لك أفضل الرحلات والإقامات والأنشطة المحلية لتستمتع بوقتك دون أي قلق.</p><div class="perks"><div class="perk"><span class="perk-icon">✓</span><span>أسعار واضحة<br><small>بدون رسوم مخفية</small></span></div><div class="perk"><span class="perk-icon">⌁</span><span>دعم طوال الرحلة<br><small>نحن بجانبك دائماً</small></span></div><div class="perk"><span class="perk-icon">◆</span><span>اختيارات موثوقة<br><small>تجارب مجربة بعناية</small></span></div><div class="perk"><span class="perk-icon">↗</span><span>حجز مرن<br><small>غيّر خطتك بسهولة</small></span></div></div></div></section>
+	</main>
+	<footer id="offers"><span>© 2026 رِحال للسفر</span><span>صُنع للذين يحبون الطريق</span></footer>
+	<script>
+		const form = document.getElementById('booking-form');
+		const result = document.getElementById('booking-result');
+		form.addEventListener('submit', (event) => {
+			event.preventDefault();
+			const destination = document.getElementById('destination').value;
+			const startDate = document.getElementById('start-date').value;
+			if (destination === 'اختر وجهة' || !startDate) {
+				result.textContent = 'اختر وجهتك وتاريخ المغادرة لنبدأ البحث ✦';
+				return;
+			}
+			result.textContent = `ممتاز! نبحث لك الآن عن أفضل الرحلات إلى ${destination}...`;
+			result.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 500, easing: 'ease-out' });
+		});
+	</script>
+</body>
+</html>

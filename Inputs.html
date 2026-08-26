@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inputs Form</title>
+    <style>
+        /*Simple syling to line up the labels and inputs cleanly */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: left;
+        }
+        label {
+            width: 80px; /*Gives labels a fixed width inputs align */
+            font-weight: bold;
+        }
+        input {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 200px;
+        }
+        </style>
+    </head>
+    <body>
+        <h2>Inputs</h2>
+
+        <form>
+          <div class="form-group">
+            <label for="text">Text:</label>
+            <input type="text" id="text" name="text">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+        </div>
+
+        <div class="form-group">
+            <label for="search">Search:</label>
+            <input type="search" id="search" name="search">
+        </div>
+    </form>
+<body>
+<html>
